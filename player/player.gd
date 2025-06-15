@@ -91,6 +91,8 @@ var press_dir := Vector3.ZERO
 var is_shooting = false
 var is_reloading = false
 
+var number_of_bullets := 2
+
 func _get_move_speed() -> float:
 	return sprint_speed if Input.is_action_pressed("sprint") else walk_speed
 
@@ -202,7 +204,6 @@ func _headbob_effect(delta) -> void:
 
 func _process(_delta: float):
 	camerasub.set_global_transform(camera.get_global_transform())
-	print(is_reloading)
 	
 func _weapon_tilt(press_x, delta) -> void:
 	%weapons.rotation.z = lerp(%weapons.rotation.z, -press_x * weapon_tilt_intese, weapon_speed_return * delta)
@@ -254,33 +255,32 @@ func _take_aim(delta):
 	aim_down_sides.position.z = target_pos.z
 
 func _handle_shooting() -> void:
-	if Global.current_number_of_bullets > 0:
+	if Global.current_number_of_bullets > 0 and is_shooting == false:
 		is_shooting = true
 		anim_tree["parameters/StateMachine/conditions/is_shoot"] = true
 		_appear_tracer()
 		
 		Global.current_number_of_bullets -= 1
 		
-	elif Global.current_number_of_bullets < 0.5:
+	elif Global.current_number_of_bullets < 1:
 		is_shooting = true
 		anim_tree["parameters/StateMachine/conditions/is_shootbl"] = true
 
 func _handle_reload() -> void:
-	if Global.current_number_of_bullets < 0.5:
+	if Global.current_number_of_bullets < 1:
 		is_reloading = true
 		anim_tree["parameters/StateMachine/conditions/is_reloading"] = true
 	
-	elif Global.current_number_of_bullets < Global.number_of_bullets:
+	elif Global.current_number_of_bullets < number_of_bullets:
 		is_reloading = true
 		anim_tree["parameters/StateMachine/conditions/is_reloadone"] = true
 
-	Global.current_number_of_bullets = Global.number_of_bullets
+	Global.current_number_of_bullets = number_of_bullets
 
 func _cam_tilt(press_x, delta) -> void:
-	#I NEED TO FIX THIS MF 
 	var target_tilt = -press_x * camera_tilt_intese
 	target_tilt = clamp(target_tilt, -90, 90)
-	%head.rotation.z = lerp(%head.rotation.z, target_tilt, camera_speed_return * delta)
+	%Camera3D.rotation.z = lerp(%Camera3D.rotation.z, target_tilt, camera_speed_return * delta)
 
 func _slow_shoot():
 	shoot_slow = walk_speed / 6

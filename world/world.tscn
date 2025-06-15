@@ -57,10 +57,7 @@ script = ExtResource("2_ow2nb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8601, 0)
 
 [node name="wholething" parent="SubViewport/World/CharacterBody3D/head/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.003125, -0.028125, 0.2625)
-
-[node name="barrel" parent="SubViewport/World/CharacterBody3D/head/Camera3D/weapons/shotgun/Node/bone/wholething" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003125, 0.0375, -0.1575)
+transform = Transform3D(0.999999, 0.00127714, 1.95754e-06, -0.00127714, 0.999997, 0.00133999, -2.4618e-07, -0.00133999, 0.999999, 0.003125, -0.028125, 0.2625)
 
 [node name="shell2" parent="SubViewport/World/CharacterBody3D/head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.123438, 0.011875)
