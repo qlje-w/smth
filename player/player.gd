@@ -8,11 +8,8 @@ var spread = 5
 
 #tracer
 @export var tracer = preload("res://tracer/bullettracer.tscn")
-@onready var tracer_spawner = $head/Camera3D/weapons/shotgun/tracerspawn
-@onready var rcont = $head/Camera3D/weapons/shotgun/rcont
-
-#var
-@onready var animations = $head/Camera3D/weapons/shotgun/AnimationPlayer
+@onready var tracer_spawner = $head/anims/Camera3D/weapons/shotgun/tracerspawn
+@onready var rcont = $head/anims/Camera3D/weapons/shotgun/rcont
 
 #camera tilt settings
 @export var camera_tilt_intese = 0.03
@@ -45,7 +42,7 @@ var initial_sprint_speed
 var aiming = false
 var base_pos
 var dis_aim_pos
-@onready var aim_down_sides = $head/Camera3D/weapons/shotgun/Node
+@onready var aim_down_sides = $head/anims/Camera3D/weapons/shotgun/Node
 var slowness_aim
 
 #weapon sway
@@ -87,7 +84,7 @@ var action_key
 var press_dir := Vector3.ZERO
 
 #anim conditions
-@onready var anim_tree : AnimationTree = $head/Camera3D/weapons/shotgun/AnimationTree
+@onready var anim_tree : AnimationTree = $head/anims/Camera3D/weapons/shotgun/AnimationTree
 var is_shooting = false
 var is_reloading = false
 
@@ -125,7 +122,7 @@ func _input(event: InputEvent) -> void:
 	_continue_reload(event)
 
 func _ready() -> void:
-	base_pos = $head/Camera3D/weapons/shotgun/Node.position
+	base_pos = $head/anims/Camera3D/weapons/shotgun/Node.position
 	dis_aim_pos = base_pos + Vector3(-0.295, 0.135, 0)
 	
 	initial_walk_speed = walk_speed
@@ -280,8 +277,8 @@ func _handle_reload() -> void:
 func _cam_tilt(press_x, delta) -> void:
 	var target_tilt = -press_x * camera_tilt_intese
 	target_tilt = clamp(target_tilt, -90, 90)
-	%Camera3D.rotation.z = lerp(%Camera3D.rotation.z, target_tilt, camera_speed_return * delta)
-
+	%head.rotation.z = lerp(%head.rotation.z, target_tilt, camera_speed_return * delta)
+	
 func _slow_shoot():
 	shoot_slow = walk_speed / 6
 	if is_shooting:
@@ -324,7 +321,6 @@ func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	anim_tree["parameters/StateMachine/conditions/is_reloadone"] = false
 	anim_tree["parameters/StateMachine/conditions/is_reloading"] = false
 	
-
 	is_reloading = false
 	
 	is_shooting = false

@@ -78,59 +78,64 @@ skeleton = NodePath("../..")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.609909, 0)
 
-[node name="Camera3D" type="Camera3D" parent="head"]
+[node name="anims" type="Node3D" parent="head"]
+
+[node name="Camera3D" type="Camera3D" parent="head/anims"]
 unique_name_in_owner = true
 cull_mask = 524287
 current = true
 
-[node name="weapons" type="Node3D" parent="head/Camera3D"]
+[node name="weapons" type="Node3D" parent="head/anims/Camera3D"]
 unique_name_in_owner = true
 
-[node name="shotgun" parent="head/Camera3D/weapons" instance=ExtResource("4_mjdlr")]
+[node name="shotgun" parent="head/anims/Camera3D/weapons" instance=ExtResource("4_mjdlr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293918, -0.235843, -0.588566)
 
-[node name="wholething" parent="head/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(0.999917, 0.0129127, 0.000111134, -0.0129132, 0.999879, 0.00858019, -3.27433e-07, -0.00858091, 0.999963, 0.003125, -0.028125, 0.2625)
+[node name="wholething" parent="head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
+transform = Transform3D(0.999954, 0.0096229, -4.98206e-05, -0.00962304, 0.99994, -0.00515784, 1.84238e-07, 0.00515808, 0.999986, 0.003125, -0.028125, 0.2625)
 
-[node name="pyramid_selection_selection" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="0"]
+[node name="pyramid_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="0"]
 layers = 524288
 
-[node name="pyramid_selection_selection_selection" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="1"]
+[node name="pyramid_selection_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="1"]
 layers = 524288
 
-[node name="shell3" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="2"]
+[node name="shell3" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.0625, 0.0953125, 0.011875)
 
-[node name="pyramid_selection_selection_selection2" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell3" index="0"]
+[node name="pyramid_selection_selection_selection2" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell3" index="0"]
 layers = 524288
 
-[node name="pyramid_selection_selection_selection_selection" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell3" index="1"]
+[node name="pyramid_selection_selection_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell3" index="1"]
 layers = 524288
 
-[node name="pyramid_selection_selection_selection3" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell2" index="0"]
+[node name="shell2" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.123438, 0.011875)
+
+[node name="pyramid_selection_selection_selection3" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell2" index="0"]
 layers = 524288
 
-[node name="pyramid_selection_selection_selection_selection2" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell2" index="1"]
+[node name="pyramid_selection_selection_selection_selection2" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell2" index="1"]
 layers = 524288
 
-[node name="tube" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/trigger" index="0"]
+[node name="tube" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/trigger" index="0"]
 layers = 524288
 
-[node name="tube_selection" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/mainpart" index="0"]
+[node name="tube_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/mainpart" index="0"]
 layers = 524288
 
-[node name="tube2" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/mainpart" index="1"]
+[node name="tube2" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/mainpart" index="1"]
 layers = 524288
 
-[node name="lock" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething" index="3"]
+[node name="lock" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething" index="3"]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.003125, 0.11125, -0.021875)
 
-[node name="cuboid" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/lock" index="0"]
+[node name="cuboid" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/lock" index="0"]
 layers = 524288
 
-[node name="flash" type="Node3D" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething" index="4"]
+[node name="flash" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething" index="4"]
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="head/Camera3D/weapons/shotgun/Node/bone/wholething/flash"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/flash"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.114432, -1.24144)
 emitting = false
 lifetime = 0.03
@@ -141,37 +146,40 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_552ud")
 draw_pass_1 = SubResource("QuadMesh_s1iii")
 
-[node name="spawner_Shell" type="Node3D" parent="head/Camera3D/weapons/shotgun"]
+[node name="AnimationPlayer" parent="head/anims/Camera3D/weapons/shotgun" index="1"]
+active = false
+
+[node name="spawner_Shell" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.237464, 0.269901, 0.468063)
 
-[node name="rcont" type="Node3D" parent="head/Camera3D/weapons/shotgun"]
+[node name="rcont" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun"]
 transform = Transform3D(1, 0, 0, 0, 0.999712, -0.0240134, 0, 0.0240134, 0.999712, -0.293918, 0.235843, 0.354426)
 
-[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="RayCast3D2" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D2" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="RayCast3D3" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D3" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="RayCast3D4" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D4" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="RayCast3D5" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D5" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="RayCast3D6" type="RayCast3D" parent="head/Camera3D/weapons/shotgun/rcont"]
+[node name="RayCast3D6" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
 
-[node name="tracerspawn" type="Node3D" parent="head/Camera3D/weapons/shotgun"]
+[node name="tracerspawn" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -227,4 +235,6 @@ offset_top = 477.0
 offset_right = 455.0
 offset_bottom = 500.0
 
-[editable path="head/Camera3D/weapons/shotgun"]
+[connection signal="animation_finished" from="head/anims/Camera3D/weapons/shotgun/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+
+[editable path="head/anims/Camera3D/weapons/shotgun"]

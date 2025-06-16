@@ -2,7 +2,7 @@ extends Node3D
 
 @export var shell = preload("res://shell/shell_scene.tscn")
 @onready var character_body_3d = $CharacterBody3D
-@onready var shell_spawner = $CharacterBody3D/head/Camera3D/weapons/shotgun/spawner_Shell
+@onready var shell_spawner = $CharacterBody3D/head/anims/Camera3D/weapons/shotgun/spawner_Shell
 
 func _ejection_shell() -> void:
 	var speed_of_shell_local = shell_spawner.global_transform.basis * Vector3(0, 0, 5)
