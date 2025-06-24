@@ -1,8 +1,25 @@
 [gd_scene load_steps=16 format=3 uid="uid://b0gkou5yu4sx3"]
 
-[ext_resource type="Script" uid="uid://cido58lwpata1" path="res://player/player.gd" id="1_ubieu"]
 [ext_resource type="Texture2D" uid="uid://ddpyp0ngx5asf" path="res://assets/textures/bateman.jpg" id="2_3sl2l"]
 [ext_resource type="PackedScene" uid="uid://cm74fi534x3cv" path="res://shotgun/shotgun_scene.tscn" id="4_mjdlr"]
+
+[sub_resource type="GDScript" id="GDScript_rkbax"]
+script/source = "extends CharacterBody3D
+
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+
+func _getting_shot() -> void:
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+		
+	move_and_slide()
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qh8g0"]
 
@@ -63,7 +80,7 @@ lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_gvy4k")
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_ubieu")
+script = SubResource("GDScript_rkbax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_qh8g0")
@@ -92,7 +109,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293918, -0.235843, -0.588566)
 
 [node name="wholething" parent="head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(0.999954, 0.0096229, -4.98206e-05, -0.00962304, 0.99994, -0.00515784, 1.84238e-07, 0.00515808, 0.999986, 0.003125, -0.028125, 0.2625)
+transform = Transform3D(1, 0.000548918, -1.03653e-06, -0.000548919, 0.999999, -0.00156975, 1.74863e-07, 0.00156975, 0.999999, 0.003125, -0.028125, 0.2625)
 
 [node name="pyramid_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="0"]
 layers = 524288
@@ -146,6 +163,9 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_552ud")
 draw_pass_1 = SubResource("QuadMesh_s1iii")
 
+[node name="tracerspawn" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun/Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
+
 [node name="AnimationPlayer" parent="head/anims/Camera3D/weapons/shotgun" index="1"]
 active = false
 
@@ -178,9 +198,6 @@ target_position = Vector3(0, 0, -100)
 [node name="RayCast3D6" type="RayCast3D" parent="head/anims/Camera3D/weapons/shotgun/rcont"]
 enabled = false
 target_position = Vector3(0, 0, -100)
-
-[node name="tracerspawn" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm8bwwwuu5hq1"]
+[gd_scene load_steps=17 format=3 uid="uid://cm8bwwwuu5hq1"]
 
 [ext_resource type="Shader" uid="uid://dey254x1h11ky" path="res://world/world.gdshader" id="1_wjphv"]
 [ext_resource type="Script" uid="uid://cffjlac3au3lh" path="res://world/world.gd" id="2_ow2nb"]
 [ext_resource type="PackedScene" uid="uid://b0gkou5yu4sx3" path="res://player/player.tscn" id="3_7yjwx"]
+[ext_resource type="Script" uid="uid://cido58lwpata1" path="res://player/player.gd" id="4_sc4t8"]
 [ext_resource type="Texture2D" uid="uid://ds72voixkvnhe" path="res://assets/textures/dirty-metal-texture(1).jpg" id="4_sxy6g"]
+[ext_resource type="PackedScene" uid="uid://cwuvs8w8dx4v7" path="res://tracer/bullettracer.tscn" id="5_ai45w"]
 [ext_resource type="PackedScene" uid="uid://dvrawjgstx8mp" path="res://enemy/enemy.tscn" id="5_ungyb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_egbuw"]
@@ -24,6 +26,10 @@ sky_material = SubResource("ProceduralSkyMaterial_3agjv")
 background_mode = 2
 sky = SubResource("Sky_gboof")
 sdfgi_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_sc4t8"]
+vertices = PackedVector3Array(-46.9094, 14.1278, 44.2866, -46.6594, 14.1278, 45.0366, -44.4094, 14.1278, 45.0366, -44.1594, 14.1278, 44.2866, -46.6594, 14.1278, 41.7866, 34.0906, 14.1278, 44.2866, 34.3406, 14.1278, 42.2866, -48.6594, 14.1278, 42.0366, -48.6594, 14.1278, 44.2866, -44.1594, 14.1278, -52.4634, -46.6594, 14.1278, -47.9634, -46.6594, 14.1278, -44.9634, 24.8406, 14.1278, -52.4634, -44.4094, 14.1278, -54.2134, -46.6594, 14.1278, -54.2134, 36.5906, 14.1278, 42.2866, 36.5906, 14.1278, -52.4634, 27.5906, 14.1278, -52.4634, 27.3406, 14.1278, -54.9634, 25.0906, 14.1278, -54.9634, -48.9094, 14.1278, -47.7134, -48.9094, 14.1278, -45.2134, -65.1594, 14.1278, -47.7134, -65.1594, 14.1278, -45.2134, -43.4094, 0.37782, -46.2134, -43.4094, 0.37782, -45.4634, 24.0906, 0.37782, -45.4634, 24.0906, 0.37782, -46.2134, 25.3406, 0.37782, -46.2134, 25.3406, 0.37782, -45.4634, 26.8406, 0.37782, -45.4634, 26.8406, 0.37782, -46.2134, -43.4094, 0.37782, -10.4634, -27.6594, 0.37782, -10.2134, -27.4094, 0.37782, -11.9634, -43.4094, 0.37782, -44.2134, -5.1594, 0.37782, -11.9634, -4.9094, 0.37782, -44.2134, -3.4094, 0.37782, 1.03661, 5.5906, 0.37782, 1.03661, 5.8406, 0.37782, -1.21339, -3.4094, 0.37782, -11.7134, 14.8406, 0.37782, -1.21339, 15.0906, 0.37782, 1.03661, 24.0906, 0.37782, 1.03661, 24.0906, 0.37782, -44.2134, 25.3406, 0.37782, -44.2134, 25.3406, 0.37782, 41.0366, 26.8406, 0.37782, 41.0366, 26.8406, 0.37782, -44.2134, -26.6594, 1.12782, -10.9634, -26.6594, 1.12782, 11.0366, -4.4094, 1.12782, 11.0366, -4.4094, 1.12782, -10.9634, -43.4094, 0.37782, 10.5366, -27.6594, 0.37782, 10.2866, 6.5906, 1.12782, -0.21339, 6.5906, 1.12782, 5.53661, 14.0906, 1.12782, 5.53661, 14.0906, 1.12782, -0.21339, -3.4094, 0.37782, 10.2866, -2.6594, 0.37782, 10.2866, -2.4094, 0.37782, 6.28661, 5.5906, 0.37782, 5.78661, 15.0906, 0.37782, 4.28661, 24.0906, 0.37782, 4.28661, 14.8406, 0.37782, 6.53661, 6.5906, 0.37782, 6.53661, 7.0906, 0.37782, 13.2866, 4.8406, 0.37782, 41.0366, 24.0906, 0.37782, 41.0366, 4.8406, 0.37782, 13.5366, -1.6594, 1.87782, 7.28661, -1.4094, 1.87782, 13.0366, 6.0906, 1.87782, 12.5366, 5.5906, 1.87782, 6.78661, -27.4094, 0.37782, 12.0366, -43.4094, 0.37782, 41.0366, -25.4094, 0.37782, 41.0366, -25.4094, 0.37782, 12.0366, -3.6594, 0.37782, 12.0366, -2.4094, 0.37782, 13.7866, -1.9094, 0.37782, 14.0366, -1.9094, 0.37782, 41.0366, -65.1594, 14.1278, 42.0366, -65.1594, 14.1278, 44.2866)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 4), PackedInt32Array(8, 7, 0), PackedInt32Array(0, 7, 4), PackedInt32Array(10, 9, 11), PackedInt32Array(11, 9, 12), PackedInt32Array(13, 9, 14), PackedInt32Array(14, 9, 10), PackedInt32Array(6, 4, 15), PackedInt32Array(15, 4, 11), PackedInt32Array(15, 11, 17), PackedInt32Array(15, 17, 16), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 12), PackedInt32Array(11, 12, 17), PackedInt32Array(20, 10, 21), PackedInt32Array(21, 10, 11), PackedInt32Array(23, 22, 21), PackedInt32Array(21, 22, 20), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(31, 30, 28), PackedInt32Array(28, 30, 29), PackedInt32Array(33, 32, 34), PackedInt32Array(34, 32, 35), PackedInt32Array(36, 34, 37), PackedInt32Array(37, 34, 35), PackedInt32Array(39, 38, 40), PackedInt32Array(40, 38, 41), PackedInt32Array(44, 43, 42), PackedInt32Array(41, 36, 37), PackedInt32Array(40, 41, 42), PackedInt32Array(42, 41, 44), PackedInt32Array(44, 41, 37), PackedInt32Array(44, 37, 45), PackedInt32Array(49, 48, 46), PackedInt32Array(46, 48, 47), PackedInt32Array(53, 52, 50), PackedInt32Array(50, 52, 51), PackedInt32Array(55, 54, 33), PackedInt32Array(33, 54, 32), PackedInt32Array(59, 58, 56), PackedInt32Array(56, 58, 57), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 38), PackedInt32Array(63, 62, 39), PackedInt32Array(39, 62, 38), PackedInt32Array(43, 44, 64), PackedInt32Array(64, 44, 65), PackedInt32Array(66, 64, 65), PackedInt32Array(68, 67, 66), PackedInt32Array(66, 65, 68), PackedInt32Array(68, 65, 70), PackedInt32Array(68, 70, 69), PackedInt32Array(69, 71, 68), PackedInt32Array(75, 74, 72), PackedInt32Array(72, 74, 73), PackedInt32Array(55, 76, 54), PackedInt32Array(54, 76, 77), PackedInt32Array(77, 76, 78), PackedInt32Array(76, 79, 78), PackedInt32Array(60, 61, 80), PackedInt32Array(80, 61, 81), PackedInt32Array(81, 82, 79), PackedInt32Array(79, 82, 83), PackedInt32Array(79, 83, 78), PackedInt32Array(79, 80, 81), PackedInt32Array(83, 82, 69), PackedInt32Array(69, 82, 71), PackedInt32Array(85, 84, 8), PackedInt32Array(8, 84, 7)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bt446"]
 
@@ -53,11 +59,41 @@ render_target_update_mode = 4
 [node name="World" type="Node3D" parent="SubViewport"]
 script = ExtResource("2_ow2nb")
 
-[node name="CharacterBody3D" parent="SubViewport/World" instance=ExtResource("3_7yjwx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8601, 0)
+[node name="Player" parent="SubViewport/World" instance=ExtResource("3_7yjwx")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.915864, 0)
+script = ExtResource("4_sc4t8")
+shell_scene = null
+tracer = ExtResource("5_ai45w")
+camera_tilt_intese = 0.03
+camera_speed_return = 10
+jump_velocity = 4.5
+sensetivity = 0.006
+auto_bhop = false
+speed_aiming = 5
+weapon_sway_speed = 5
+weapon_angle = 0.005
+weapon_tilt_intese = 0.06
+weapon_speed_return = 10
+weapon_bob_time = 0.0
+weapon_bob_frequency = 1.5
+weapon_bob_move_amount = 0.0002
+sprint_speed = 7.5
+walk_speed = 6.0
+ground_accel = 14.0
+ground_decel = 10.0
+ground_friction = 5.0
+air_cap = 0.85
+air_accel = 800.0
+air_move_speed = 500.0
 
-[node name="wholething" parent="SubViewport/World/CharacterBody3D/head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(0.999356, 0.0358924, 0.000541376, -0.0358965, 0.999241, 0.0150708, -3.91156e-08, -0.0150805, 0.999885, 0.003125, -0.028125, 0.2625)
+[node name="wholething" parent="SubViewport/World/Player/head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
+transform = Transform3D(0.999503, 0.0315354, 0.000531915, -0.03154, 0.999359, 0.0168496, -2.13564e-07, -0.016858, 0.999856, 0.003125, -0.028125, 0.2625)
+
+[node name="tracerspawn" parent="SubViewport/World/Player/head/anims/Camera3D/weapons/shotgun/Node" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
+
+[node name="Marker3D" type="Marker3D" parent="SubViewport/World/Player"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/World"]
 transform = Transform3D(1, 0, 0, 0, 0.895277, 0.44551, 0, -0.44551, 0.895277, 0, 6.96349, 13.8433)
@@ -69,93 +105,100 @@ environment = SubResource("Environment_2vu7k")
 [node name="hitscan" type="Node3D" parent="SubViewport/World"]
 
 [node name="enemy" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99609, 2.15728, -5.16963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1846, 2.17747, -5.16963)
+player_path = NodePath("../../Player")
 
 [node name="enemy2" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.05409, 2.15728, -5.16963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4007, 2.15728, 20.7494)
+player_path = NodePath("../../Player")
 
 [node name="enemy3" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15728, -5.16963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.3129, 0.6938, -20.259)
+player_path = NodePath("../../Player")
 
 [node name="enemy4" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63883, 2.15728, -5.16963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.22, 1.12511, -29.2705)
+player_path = NodePath("../../Player")
 
 [node name="anytingcol" type="Node3D" parent="SubViewport/World"]
 
-[node name="walls" type="Node3D" parent="SubViewport/World/anytingcol"]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewport/World/anytingcol"]
+navigation_mesh = SubResource("NavigationMesh_sc4t8")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewport/World/anytingcol/walls" groups=["walls"]]
+[node name="walls" type="Node3D" parent="SubViewport/World/anytingcol/NavigationRegion3D"]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls" groups=["walls"]]
 transform = Transform3D(100.152, 0, 0, 0, 18.7098, 0, 0, 0, 3.02153, -15.5834, 4.48272, 43.1409)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D2"]
 shape = SubResource("BoxShape3D_bt446")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D2"]
 mesh = SubResource("BoxMesh_4fhxm")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewport/World/anytingcol/walls" groups=["walls"]]
+[node name="StaticBody3D3" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls" groups=["walls"]]
 transform = Transform3D(-4.37778e-06, 0, 3.02153, 0, 18.7098, 0, -100.152, 0, -1.32075e-07, -45.4945, 4.48272, -4.63183)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D3"]
 shape = SubResource("BoxShape3D_bt446")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D3"]
 mesh = SubResource("BoxMesh_4fhxm")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="SubViewport/World/anytingcol/walls" groups=["walls"]]
+[node name="StaticBody3D4" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls" groups=["walls"]]
 transform = Transform3D(100.152, 0, 0, 0, 18.7098, 0, 0, 0, 3.02153, -15.5834, 4.48272, -46.4556)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D4"]
 shape = SubResource("BoxShape3D_bt446")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D4"]
 mesh = SubResource("BoxMesh_4fhxm")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="SubViewport/World/anytingcol/walls" groups=["walls"]]
+[node name="StaticBody3D5" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls" groups=["walls"]]
 transform = Transform3D(-4.37778e-06, 0, -3.02153, 0, 18.7098, 0, 100.152, 0, -1.32075e-07, 26.1228, 4.48272, -5.38739)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D5"]
 shape = SubResource("BoxShape3D_bt446")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D5"]
 mesh = SubResource("BoxMesh_4fhxm")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/World/anytingcol/walls" groups=["walls"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls" groups=["walls"]]
 transform = Transform3D(22.9187, 0, 0, 0, 1, 0, 0, 0, 22.9187, -15.5834, 0.150721, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D"]
 shape = SubResource("BoxShape3D_bt446")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/walls/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/walls/StaticBody3D"]
 mesh = SubResource("BoxMesh_4fhxm")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../../../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/World/anytingcol"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/World/anytingcol/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.4052, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/StaticBody3D" groups=["walls"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76237, -14.2178, -5.0939)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/World/anytingcol/NavigationRegion3D/StaticBody3D" groups=["walls"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.76237, -10.1511, -5.0939)
 shape = SubResource("BoxShape3D_5qxlf")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewport/World/anytingcol" groups=["walls"]]
+[node name="CSGBox3D2" type="CSGBox3D" parent="SubViewport/World/anytingcol/NavigationRegion3D" groups=["walls"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3168, 0.318461, 2.73529)
 use_collision = true
 size = Vector3(8.15637, 0.670258, 6.47058)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="SubViewport/World/anytingcol" groups=["walls"]]
+[node name="CSGBox3D3" type="CSGBox3D" parent="SubViewport/World/anytingcol/NavigationRegion3D" groups=["walls"]]
 transform = Transform3D(0.997672, 0, 0.0681894, 0, 1, 0, -0.0681894, 0, 0.997672, 2.1683, 1.00159, 9.85464)
 use_collision = true
 size = Vector3(8.15637, 0.816132, 6.47058)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="SubViewport/World/anytingcol" groups=["walls"]]
+[node name="CSGBox3D" type="CSGBox3D" parent="SubViewport/World/anytingcol/NavigationRegion3D" groups=["walls"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.33796, -0.223943, -2.47993)
 use_collision = true
 size = Vector3(71.2921, 0.414551, 88.3546)
 material = SubResource("StandardMaterial3D_jaa5w")
 
-[editable path="SubViewport/World/CharacterBody3D"]
-[editable path="SubViewport/World/CharacterBody3D/head/anims/Camera3D/weapons/shotgun"]
+[editable path="SubViewport/World/Player"]
+[editable path="SubViewport/World/Player/head/anims/Camera3D/weapons/shotgun"]

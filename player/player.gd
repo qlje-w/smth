@@ -8,7 +8,7 @@ var spread = 5
 
 #tracer
 @export var tracer = preload("res://tracer/bullettracer.tscn")
-@onready var tracer_spawner = $head/anims/Camera3D/weapons/shotgun/tracerspawn
+@onready var tracer_spawner = $head/anims/Camera3D/weapons/shotgun/Node/tracerspawn
 @onready var rcont = $head/anims/Camera3D/weapons/shotgun/rcont
 
 #camera tilt settings
