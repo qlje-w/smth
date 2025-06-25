@@ -88,10 +88,7 @@ air_accel = 800.0
 air_move_speed = 500.0
 
 [node name="wholething" parent="SubViewport/World/Player/head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(0.999503, 0.0315354, 0.000531915, -0.03154, 0.999359, 0.0168496, -2.13564e-07, -0.016858, 0.999856, 0.003125, -0.028125, 0.2625)
-
-[node name="tracerspawn" parent="SubViewport/World/Player/head/anims/Camera3D/weapons/shotgun/Node" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
+transform = Transform3D(0.999924, 0.0123188, -6.97179e-05, -0.012319, 0.999906, -0.00564938, 1.1774e-07, 0.00564981, 0.999981, 0.003125, -0.028125, 0.2625)
 
 [node name="Marker3D" type="Marker3D" parent="SubViewport/World/Player"]
 
@@ -105,7 +102,7 @@ environment = SubResource("Environment_2vu7k")
 [node name="hitscan" type="Node3D" parent="SubViewport/World"]
 
 [node name="enemy" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1846, 2.17747, -5.16963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.1846, 4.61997, -5.16963)
 player_path = NodePath("../../Player")
 
 [node name="enemy2" parent="SubViewport/World/hitscan" instance=ExtResource("5_ungyb")]

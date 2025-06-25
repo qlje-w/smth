@@ -426,12 +426,12 @@ states/shoot/position = Vector2(395, 209)
 states/shoot2/node = SubResource("AnimationNodeAnimation_yr7y2")
 states/shoot2/position = Vector2(556, 209)
 transitions = ["idle", "reload", SubResource("AnimationNodeStateMachineTransition_s8ywm"), "reload", "idle", SubResource("AnimationNodeStateMachineTransition_52jit"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_2tqbu"), "idle", "reloadonebullet", SubResource("AnimationNodeStateMachineTransition_4u06u"), "reloadonebullet", "idle", SubResource("AnimationNodeStateMachineTransition_vvmd7"), "idle", "shoot", SubResource("AnimationNodeStateMachineTransition_md12i"), "shoot", "idle", SubResource("AnimationNodeStateMachineTransition_2f0m1"), "shoot2", "idle", SubResource("AnimationNodeStateMachineTransition_qgt6e"), "idle", "shoot2", SubResource("AnimationNodeStateMachineTransition_hkib2")]
-graph_offset = Vector2(-72, 12)
+graph_offset = Vector2(-290, 7)
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_0i2h3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_08usy"]
-graph_offset = Vector2(-560.363, 75.9091)
+graph_offset = Vector2(-578.363, 187.273)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_v6l62")
 nodes/StateMachine/position = Vector2(-40, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_0i2h3")
@@ -446,7 +446,7 @@ node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"
 [node name="bone" type="Node3D" parent="Node"]
 
 [node name="wholething" type="Node3D" parent="Node/bone"]
-transform = Transform3D(0.999988, 0.00501757, 2.06385e-05, -0.00501762, 0.999979, 0.00405809, -2.76328e-07, -0.00405814, 0.999992, 0.003125, -0.028125, 0.2625)
+transform = Transform3D(1, 0.00104131, -2.30947e-06, -0.00104131, 0.999997, -0.00195999, 2.68513e-07, 0.00195999, 0.999998, 0.003125, -0.028125, 0.2625)
 
 [node name="barrel" type="Node3D" parent="Node/bone/wholething"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.003125, 0.0375, -0.1575)
@@ -517,7 +517,7 @@ skeleton = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": ExtResource("13_0um7d")
+&"": ExtResource("13_0um7d")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

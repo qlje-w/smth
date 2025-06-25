@@ -1,5 +1,5 @@
 extends Node3D
-var speed = 50
+var speed = 70
 var velocity: Vector3 = Vector3.ZERO
 
 @export var hole = preload("res://assets/textures/png-clipart-bullet-transparency-and-translucency-bullet-holes-miscellaneous-rock.png")

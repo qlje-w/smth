@@ -8,7 +8,7 @@ var spread = 5
 
 #tracer
 @export var tracer = preload("res://tracer/bullettracer.tscn")
-@onready var tracer_spawner = $head/anims/Camera3D/weapons/shotgun/Node/tracerspawn
+@onready var tracer_spawner = $head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/tracerspawn
 @onready var rcont = $head/anims/Camera3D/weapons/shotgun/rcont
 
 #camera tilt settings
@@ -291,15 +291,22 @@ func _slow_shoot():
 func _appear_tracer():
 	for r in rcont.get_children():
 		r.force_raycast_update()
-		var spread_rand = Vector3(randf_range(spread, -spread), 
-		randf_range(spread, -spread), r.target_position.z)
+		var spread_rand = Vector3(
+			randf_range(spread, -spread), 
+			randf_range(spread, -spread), 
+			r.target_position.z
+		)
 		r.target_position = spread_rand
+		
 		var bullet_tracer = tracer.instantiate()
 		bullet_tracer.global_transform = tracer_spawner.global_transform
+		
 		bullet_tracer.look_at_from_position(tracer_spawner.global_transform.origin, 
 		r.get_collision_point(), Vector3.UP)
+		
 		var direction = (r.get_collision_point() - tracer_spawner.global_transform.origin).normalized()
 		bullet_tracer.velocity = direction * bullet_tracer.speed
+		
 		add_sibling(bullet_tracer)
 
 func _stop_reload():

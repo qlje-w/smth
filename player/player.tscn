@@ -79,7 +79,7 @@ emission_texture = SubResource("GradientTexture2D_i5pfh")
 lightmap_size_hint = Vector2i(7, 7)
 material = SubResource("StandardMaterial3D_gvy4k")
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = SubResource("GDScript_rkbax")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -99,6 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.609909, 0)
 
 [node name="Camera3D" type="Camera3D" parent="head/anims"]
 unique_name_in_owner = true
+physics_interpolation_mode = 2
 cull_mask = 524287
 current = true
 
@@ -109,7 +110,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.293918, -0.235843, -0.588566)
 
 [node name="wholething" parent="head/anims/Camera3D/weapons/shotgun/Node/bone" index="0"]
-transform = Transform3D(1, 0.000548918, -1.03653e-06, -0.000548919, 0.999999, -0.00156975, 1.74863e-07, 0.00156975, 0.999999, 0.003125, -0.028125, 0.2625)
+transform = Transform3D(0.999983, 0.00588963, -2.49468e-05, -0.00588968, 0.999974, -0.00421823, 1.02335e-07, 0.00421831, 0.999991, 0.003125, -0.028125, 0.2625)
 
 [node name="pyramid_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="0"]
 layers = 524288
@@ -125,9 +126,6 @@ layers = 524288
 
 [node name="pyramid_selection_selection_selection_selection" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell3" index="1"]
 layers = 524288
-
-[node name="shell2" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.123438, 0.011875)
 
 [node name="pyramid_selection_selection_selection3" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething/barrel/shell2" index="0"]
 layers = 524288
@@ -163,8 +161,8 @@ transform_align = 1
 process_material = SubResource("ParticleProcessMaterial_552ud")
 draw_pass_1 = SubResource("QuadMesh_s1iii")
 
-[node name="tracerspawn" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun/Node" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043565, -0.939236)
+[node name="tracerspawn" type="Node3D" parent="head/anims/Camera3D/weapons/shotgun/Node/bone/wholething" index="5"]
+transform = Transform3D(0.999998, -0.0017303, -0.000672602, 0.00171987, 0.999882, -0.0152065, 0.000698836, 0.0152054, 0.999884, -0.00262481, 0.0999602, -1.11076)
 
 [node name="AnimationPlayer" parent="head/anims/Camera3D/weapons/shotgun" index="1"]
 active = false
@@ -217,6 +215,7 @@ render_target_update_mode = 4
 
 [node name="subcam" type="Camera3D" parent="CanvasLayer/SubViewportContainer/weapon"]
 unique_name_in_owner = true
+physics_interpolation_mode = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.611865, 0)
 cull_mask = 524288
 current = true
